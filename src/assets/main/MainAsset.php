@@ -25,6 +25,7 @@ class MainAsset extends AssetBundle
         ];
         $this->js = [
             'scripts' . DIRECTORY_SEPARATOR . 'main.js',
+            'https://player.3qsdn.com/js3q.latest.js',
         ];
 
         parent::init();

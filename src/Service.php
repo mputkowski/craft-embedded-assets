@@ -89,6 +89,7 @@ class Service extends Component
             'min_image_width' => $pluginSettings->minImageSize,
             'min_image_height' => $pluginSettings->minImageSize,
             'oembed' => ['parameters' => []],
+            'custom_adapters_namespace' => 'spicyweb\\embeddedassets\\adapters\\',
         ];
 
         if (!empty($pluginSettings->parameters)) {
@@ -409,10 +410,8 @@ class Service extends Component
 
                 foreach ($dom->getElementsByTagName('script') as $scriptElement) {
                     $src = $scriptElement->getAttribute('src');
-                    $content = $scriptElement->textContent;
 
-                    // Inline scripts are impossible to analyse for safety, so just assume they're all evil
-                    $isSafe = $isSafe && !$content && (!$src || $this->checkWhitelist($src));
+                    $isSafe = $isSafe && (!$src || $this->checkWhitelist($src));
                 }
             }
         }

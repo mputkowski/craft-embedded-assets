@@ -60,6 +60,11 @@ class Settings extends Model
      * @var array of strings
      */
     public array $whitelist = [
+        // 3Q
+        '3qsdn.com',
+        'playout.3qsdn.com',
+        'player.3qsdn.com',
+
         // Amazon
         'amazon.*',
         'amazon.co.*',
